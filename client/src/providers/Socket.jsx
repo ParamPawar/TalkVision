@@ -9,7 +9,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io("http://localhost:8001", {
       transports: ["websocket"],
-    }); // Ensure the correct server URL and port
+    });
     newSocket.on("connect", () => {
       console.log("Socket connected:", newSocket.id);
     });
