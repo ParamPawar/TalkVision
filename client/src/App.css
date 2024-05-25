@@ -3,6 +3,8 @@ body{
     }
 
 .homepage-container{
+	width: 100vw;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;	
@@ -17,6 +19,8 @@ body{
 	display: block;
 	padding: 10px 20px;
 	margin: 10px;
+	border-radius: 12px;
+	border:  1px solid black;
 	align-items: center;
 }
 
@@ -25,6 +29,8 @@ body{
 	font-size: 24px;
 	width: 100%;
 	padding: 10px 20px;
+	border-radius: 12px;
+	border:  1px solid black;
 	cursor: pointer;
 	align-items: center;
 }
