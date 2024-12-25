@@ -110,35 +110,56 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div>
-      <h1>Room Page</h1>
-      <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
-      {myStream && <button onClick={sendStreams}>Send Stream</button>}
-      {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
-      {myStream && (
-        <>
-          <h1>My Stream</h1>
-          <ReactPlayer
-            playing
-            muted
-            height="100px"
-            width="200px"
-            url={myStream}
-          />
-        </>
-      )}
-      {remoteStream && (
-        <>
-          <h1>Remote Stream</h1>
-          <ReactPlayer
-            playing
-            muted
-            height="100px"
-            width="200px"
-            url={remoteStream}
-          />
-        </>
-      )}
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">Room Page</h1>
+      <h4 className={`text-lg mb-4 ${remoteSocketId ? "text-green-500" : "text-red-500"}`}>
+        {remoteSocketId ? "Connected" : "No one in room"}
+      </h4>
+      <div className="space-x-4 mb-6">
+        {myStream && (
+          <button
+            onClick={sendStreams}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Send Stream
+          </button>
+        )}
+        {remoteSocketId && (
+          <button
+            onClick={handleCallUser}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            CALL
+          </button>
+        )}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {myStream && (
+          <div className="p-4 bg-white shadow rounded">
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">My Stream</h2>
+            <ReactPlayer
+              playing
+              muted
+              height="200px"
+              width="100%"
+              url={myStream}
+              className="rounded"
+            />
+          </div>
+        )}
+        {remoteStream && (
+          <div className="p-4 bg-white shadow rounded">
+            <h2 className="text-xl font-semibold text-gray-700 mb-2">Remote Stream</h2>
+            <ReactPlayer
+              playing
+              height="200px"
+              width="100%"
+              url={remoteStream}
+              className="rounded"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
