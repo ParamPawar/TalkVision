@@ -30,7 +30,8 @@ Run both servers (on separate terminals)
 ```bash
 npm start
 ```
-
+## Important note
+To get the program going, make sure to start both the server and client in separate terminals. Just run them both, and don’t forget to install all the dependencies in each folder.
   
   
 ## Tech Stack
